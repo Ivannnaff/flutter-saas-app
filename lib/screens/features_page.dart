@@ -6,33 +6,64 @@ class FeaturesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> items = ['Fitur A', 'Fitur B', 'Fitur C', 'Fitur D'];
+    final List<Map<String, String>> features = [
+      {
+        'name': 'Pengembangan Mobile',
+        'desc': 'Membuat aplikasi multi-platform dengan Flutter dan Dart.',
+        'image': 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&fit=crop'
+      },
+      {
+        'name': 'Desain Responsif',
+        'desc': 'Tampilan menyesuaikan berbagai ukuran layar perangkat.',
+        'image': 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600&fit=crop'
+      },
+      {
+        'name': 'Manajemen State',
+        'desc': 'Mengelola data lokal menggunakan StatefulWidget dan setState.',
+        'image': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&fit=crop'
+      },
+    ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Halaman Fitur'),
-      ),
+      appBar: AppBar(title: const Text('Fitur Aplikasi')),
       body: ListView.builder(
-        itemCount: items.length,
+        padding: const EdgeInsets.all(12),
+        itemCount: features.length,
         itemBuilder: (context, index) {
+          final f = features[index];
           return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: ListTile(
-              leading: const Icon(Icons.star),
-              title: Text(items[index]),
-              subtitle: const Text('Keterangan singkat fitur.'),
-              trailing: const Icon(Icons.arrow_forward),
+            margin: const EdgeInsets.only(bottom: 16),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailPage(
-                      title: items[index],
-                      description: 'Penjelasan lengkap mengenai ${items[index]} dan cara kerjanya dalam aplikasi.',
+                      title: f['name']!,
+                      description: f['desc']!,
+                      imageUrl: f['image']!,
                     ),
                   ),
                 );
               },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.network(f['image']!, height: 140, width: double.infinity, fit: BoxFit.cover),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(f['name']!, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                        const SizedBox(height: 4),
+                        Text(f['desc']!, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
