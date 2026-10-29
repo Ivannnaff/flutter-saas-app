@@ -1,9 +1,9 @@
 # Laporan Penjelasan Aplikasi UTS Praktikum Mobile Programming
 
 ## 1. Nama dan Tujuan Aplikasi
-- **Nama Aplikasi:** **NexFlow Cloud** (SaaS Startup Mobile Landing Page & Dashboard)
+- **Nama Aplikasi:** Aplikasi UTS Mobile Programming
 - **Tujuan Aplikasi:** 
-  Aplikasi ini dirancang sebagai platform Software as a Service (SaaS) modern yang menampilkan informasi produk cloud, fitur-fitur analitik dan otomatisasi bisnis, pilihan paket harga berlangganan, testimoni pengguna, serta formulir konsultasi/kontak interaktif bagi calon pelanggan.
+  Aplikasi ini dibuat untuk memenuhi tugas UTS Praktikum Mobile Programming. Aplikasi ini menampilkan navigasi antar halaman, pengiriman data, dan penggunaan berbagai widget dasar Flutter.
 
 ---
 
